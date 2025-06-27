@@ -12,6 +12,37 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura&display=swap">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .hero-section {
+            position: relative;
+            overflow: hidden;
+        }
+        #meteor-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            display: block;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="header">
@@ -28,6 +59,7 @@
     </div>
 
     <div class="hero-section">
+        <canvas id="meteor-canvas"></canvas>
         <div class="hero-content">
             <h1>Experience the Perfect Brew.</h1>
             <h3>Every cup tells a story of passion and quality. Discover your new favorite.</h3>
@@ -145,5 +177,69 @@
             <div class="footer-copyright">© 2025 Ivory Coffee. All rights reserved.</div>
         </div>
     </footer>
+
+    <script>
+    const canvas = document.getElementById("meteor-canvas");
+    const ctx = canvas.getContext("2d");
+    let meteors = [];
+
+    function resizeCanvas() {
+        canvas.width = canvas.offsetWidth;
+        canvas.height = canvas.offsetHeight;
+    }
+    window.addEventListener("resize", resizeCanvas);
+    resizeCanvas();
+
+    function createMeteor() {
+        const direction = Math.random() > 0.5 ? 1 : -1;
+        const y = Math.random() * canvas.height;
+        const length = Math.random() * 40 + 20;
+        const speed = Math.random() * 4 + 4;
+        meteors.push({
+            x: direction > 0 ? -length : canvas.width + length,
+            y,
+            length,
+            speed,
+            opacity: 1,
+            direction
+        });
+    }
+
+    function updateMeteors() {
+        ctx.fillStyle = "rgba(0, 0, 0, 0.2)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        for (let i = 0; i < meteors.length; i++) {
+            const m = meteors[i];
+            m.x += m.speed * m.direction;
+            m.opacity -= 0.008;
+
+            ctx.beginPath();
+            const grad = ctx.createLinearGradient(
+                m.x, m.y,
+                m.x - m.length * m.direction, m.y
+            );
+            grad.addColorStop(0, `rgba(255,255,255,${m.opacity})`);
+            grad.addColorStop(1, "rgba(255,255,255,0)");
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 1.5;
+            ctx.moveTo(m.x, m.y);
+            ctx.lineTo(m.x - m.length * m.direction, m.y);
+            ctx.stroke();
+
+            if (m.opacity <= 0) {
+                meteors.splice(i, 1);
+                i--;
+            }
+        }
+    }
+
+    function animate() {
+        updateMeteors();
+        if (Math.random() < 0.2) createMeteor();
+        requestAnimationFrame(animate);
+    }
+
+    animate();
+    </script>
 </body>
 </html>
