@@ -1,0 +1,539 @@
+/* Base Reset */
+body {
+    margin: 0;
+    padding: 0;
+    background: #000;
+    font-family: 'DM Serif Display', serif;
+    color: #111;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Header Styling */
+.header {
+    width: 100vw;
+    height: 100vh;
+    background: url(./background.jpg) center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    padding: 0 40px;
+    background: transparent;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 900;
+    cursor: pointer;
+    color: #000;
+    position: relative;
+    overflow: hidden;
+}
+
+.logo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.4) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-20deg);
+}
+
+.logo:hover::before {
+    animation: shine 1s forwards;
+}
+
+@keyframes shine {
+    0% {
+        left: -75%;
+    }
+    100% {
+        left: 125%;
+    }
+}
+
+.menu {
+    display: flex;
+    gap: 40px;
+    font-weight: 100;
+}
+
+.menu a {
+    color: #000;
+    position: relative; /* Needed for the ::after pseudo-element */
+    padding-bottom: 5px; /* Space for the underline */
+    transition: color 0.3s ease; /* Smooth transition for text color */
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px; /* Thickness of the underline */
+    background: #000; /* Color of the underline */
+    bottom: 0;
+    left: 50%; /* Start from the middle */
+    transform: translateX(-50%); /* Center the underline */
+    transition: width 0.3s ease; /* Smooth transition for width */
+}
+
+.menu a:hover {
+    color: #7f7f7f; /* Text color on hover */
+}
+
+.menu a:hover::after {
+    width: 100%; /* Expand underline to full width on hover */
+}
+
+.menu a:active {
+    color: #fff;
+}
+
+.menu a:active::after {
+    background: #fff; /* Underline color on active */
+}
+
+.scroll {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    font-family: 'Jura', sans-serif;
+    font-weight: 100;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+/* Hero Section Styling */
+.hero-section {
+    width: 100vw;
+    height: 80vh; /* Adjust height as needed */
+    background: url('./hero-background.jpg') center/cover no-repeat; /* Placeholder for a nice hero background image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Overlay for readability */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.hero-content h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-content h3 {
+    font-family: 'Jura', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #A0522D; /* Coffee-like color */
+    color: #fff;
+    font-family: 'Jura', sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: pulse 1.5s infinite;
+}
+
+.hero-button:hover {
+    background-color: #8B4513; /* Darker shade on hover */
+    transform: translateY(-3px);
+    animation: none; /* Stop pulse on hover */
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/* Content Styling */
+.content {
+    background: #000;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 60px 20px;
+    gap: 40px;
+}
+
+.banner {
+    width: 300px;
+    min-height: 450px;
+    background: #F0F0F0;
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* Needed for pseudo-elements */
+    overflow: hidden; /* Ensures background images don't overflow */
+}
+
+.banner:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* Background images with opacity overlay */
+#summer::before, #blends::before, #visit::before,
+#highlights::before, #order::before, #about::before,
+#contact::before, #features::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2; /* Decreased initial opacity */
+    z-index: 0;
+    transition: opacity 0.3s ease; /* Smooth transition for hover */
+}
+
+.banner:hover::before {
+    opacity: 1; /* Full opacity on hover */
+}
+
+#summer {
+    background: linear-gradient(90deg, rgba(240, 240, 240, 0.95) 0%, rgba(206, 206, 206, 0.95) 100%);
+}
+#summer::before { background: url('summer.jpg') center/cover no-repeat; }
+
+#blends {
+    background: linear-gradient(90deg, rgba(240, 240, 240, 0.95) 0%, rgba(206, 206, 206, 0.95) 100%);
+}
+#blends::before { background: url('blends.jpg') center/cover no-repeat; }
+
+#visit {
+    background: linear-gradient(90deg, rgba(240, 240, 240, 0.95) 0%, rgba(206, 206, 206, 0.95) 100%);
+}
+#visit::before { background: url('visit.jpg') center/cover no-repeat; }
+
+#highlights {
+    background: linear-gradient(90deg, rgba(240, 240, 240, 0.95) 0%, rgba(206, 206, 206, 0.95) 100%);
+}
+#highlights::before { background: url('highlights.jpg') center/cover no-repeat; }
+
+#order {
+    background: linear-gradient(90deg, rgba(240, 240, 240, 0.95) 0%, rgba(206, 206, 206, 0.95) 100%);
+}
+#order::before { background: url('order.jpg') center/cover no-repeat; }
+
+#about {
+    background: linear-gradient(90deg, rgba(240, 240, 240, 0.95) 0%, rgba(206, 206, 206, 0.95) 100%);
+}
+#about::before { background: url('about.jpg') center/cover no-repeat; }
+
+#contact {
+    background: linear-gradient(90deg, rgba(240, 240, 240, 0.95) 0%, rgba(206, 206, 206, 0.95) 100%);
+}
+#contact::before { background: url('contact.jpg') center/cover no-repeat; }
+
+#features {
+    background: linear-gradient(90deg, rgba(240, 240, 240, 0.95) 0%, rgba(206, 206, 206, 0.95) 100%);
+}
+#features::before { background: url('features.jpg') center/cover no-repeat; }
+
+
+.textbox {
+    position: relative; /* Ensures text is above pseudo-element */
+    z-index: 1;
+    margin-top: auto;
+    font-family: 'Jura', sans-serif;
+    opacity: 1; /* Explicitly ensure full text opacity */
+}
+
+.textbox h1 {
+    font-family: 'DM Serif Display', serif;
+    margin-bottom: 15px;
+}
+
+.textbox h3 {
+    font-weight: 300;
+    line-height: 1.5;
+    color: #333;
+}
+
+/* Testimonials Section Styling */
+.testimonials-section {
+    background: #f8f8f8; /* Light background for contrast */
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.testimonials-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    color: #000;
+    margin-bottom: 50px;
+}
+
+.testimonials-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.testimonial-card p {
+    font-family: 'Jura', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.testimonial-card h4 {
+    font-family: 'Jura', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    text-align: right;
+    font-weight: 600;
+}
+
+/* Our Story Section Styling */
+.our-story-section {
+    background: linear-gradient(to right, #2c1a00, #4a2e00); /* Darker, richer coffee gradient */
+    padding: 80px 20px;
+    text-align: center;
+    max-width: 100%; /* Ensure it spans full width if needed */
+    margin: 0 auto;
+    color: #f0f0f0; /* Lighter font color for contrast */
+    box-shadow: inset 0 5px 15px rgba(0,0,0,0.3); /* Inner shadow for depth */
+}
+
+.our-story-section h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem; /* Larger font size for impact */
+    color: #e0b080; /* A warm, inviting coffee-cream color */
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Text shadow for fancier look */
+}
+
+.our-story-section p {
+    font-family: 'Jura', sans-serif;
+    font-size: 1.2rem; /* Slightly larger body text */
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: center; /* Centered text for a more elegant block */
+    max-width: 800px; /* Constrain paragraph width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Terms container full-width background */
+.terms-container {
+    width: 100vw;
+    background: linear-gradient(to bottom, #f4f4f4, #ddd);
+    display: flex;
+    justify-content: center;
+    padding: 40px 0;
+}
+
+.terms {
+    max-width: 900px;
+    text-align: left;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #333;
+    padding: 0 20px;
+    font-family: 'Arial', sans-serif; /* More serious/legal font */
+}
+
+.terms h2 {
+    color: #000;
+    margin-bottom: 10px;
+}
+
+/* Footer Styling */
+.footer {
+    background: #111;
+    color: #f0f0f0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.footer-menu {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-menu a {
+    color: #ccc;
+    font-weight: 300;
+}
+
+.footer-menu a:hover {
+    color: #fff;
+}
+
+.footer-bottom {
+    font-size: 0.875rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+    }
+
+    .menu {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .content {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 10px;
+    }
+
+    .banner {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .testimonials-section h2, .our-story-section h2 {
+        font-size: 2rem;
+    }
+
+    .testimonial-card {
+        min-width: unset;
+        width: 100%;
+    }
+
+    .footer-menu {
+        justify-content: center;
+    }
+}
+

@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ivory Coffee | Online & Contact</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jura&display=swap">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="menu-style.css">
+  <style>
+    #order-online {
+      background: linear-gradient(to bottom, #fffaf0, #f0f0f0);
+      padding: 80px 40px;
+      text-align: center;
+    }
+
+    #order-online h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.8rem;
+      color: #3e2c1c;
+    }
+
+    #order-online p {
+      font-family: 'Jura', sans-serif;
+      font-size: 1.2rem;
+      color: #444;
+      max-width: 700px;
+      margin: 20px auto;
+    }
+
+    .platform-logos {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-top: 50px;
+    }
+
+    .platform-link {
+      width: 180px;
+      height: 90px;
+      border-radius: 12px;
+      background: #fff;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .platform-link:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .platform-logo {
+      max-height: 60px;
+      max-width: 130px;
+      object-fit: contain;
+    }
+
+    #about-us {
+      padding: 60px 40px;
+      background: #fff;
+      text-align: center;
+    }
+
+    #about-us h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #8B4513;
+    }
+
+    #about-us p {
+      font-family: 'Jura', sans-serif;
+      font-size: 1.1rem;
+      color: #444;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    #contact-us {
+      background: #f5f5f5;
+      padding: 60px 40px;
+      text-align: center;
+    }
+
+    #contact-us h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: #3e2c1c;
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .contact-form label {
+      font-family: 'Jura', sans-serif;
+      display: block;
+      margin: 15px 0 5px;
+      font-size: 1rem;
+      color: #333;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-family: 'Jura', sans-serif;
+      font-size: 1rem;
+      transition: border 0.3s ease;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #8B4513;
+      outline: none;
+    }
+
+    .contact-form button {
+      margin-top: 20px;
+      background-color: #A0522D;
+      color: white;
+      padding: 12px 30px;
+      border: none;
+      border-radius: 6px;
+      font-family: 'Jura', sans-serif;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #8B4513;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="navbar">
+      <a href="index.html"><div class="logo">Ivory Coffee</div></a>
+      <div class="menu">
+        <a href="menu.html">Our Menu</a>
+        <a href="#order-online">Order Online</a>
+        <a href="#about-us">About Us</a>
+        <a href="#contact-us">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="order-online">
+    <h2>Order Online</h2>
+    <p>Enjoy your favourite Ivory Coffee drinks and pastries from the comfort of your home. We’ve partnered with the best platforms for fast and reliable delivery straight to your door.</p>
+    <div class="platform-logos">
+      <a href="https://www.deliveroo.co.uk/" target="_blank" class="platform-link">
+        <img src="https://upload.wikimedia.org/wikipedia/en/1/17/Deliveroologo.svg" alt="Deliveroo" class="platform-logo">
+      </a>
+      <a href="https://www.ubereats.com/" target="_blank" class="platform-link">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Uber_Eats_2020_logo.svg" alt="Uber Eats" class="platform-logo">
+      </a>
+      <a href="https://www.just-eat.co.uk/" target="_blank" class="platform-link">
+        <img src="https://upload.wikimedia.org/wikipedia/en/4/46/Just_Eat_orange_logo.svg" alt="Just Eat" class="platform-logo">
+      </a>
+    </div>
+  </section>
+
+  <section id="about-us">
+    <h2>About Us</h2>
+    <p>Ivory Coffee is more than just a café. We are passionate about crafting the perfect cup and creating a welcoming space for everyone. With ethically sourced beans, expert baristas, and a commitment to sustainability, we bring you an experience that delights all senses. Whether you're here for your morning boost or an afternoon treat, we're here to serve.</p>
+  </section>
+
+  <section id="contact-us">
+    <h2>Contact Us</h2>
+    <div class="contact-form">
+      <form>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-logo">Ivory Coffee</div>
+      <div class="footer-menu">
+        <a href="menu.html">Menu</a>
+        <a href="#order-online">Order</a>
+        <a href="#about-us">About</a>
+        <a href="#contact-us">Contact</a>
+              <a href="index.html#terms">Terms</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">© 2025 Ivory Coffee. All rights reserved.</div>
+    </div>
+  </footer>
+
+</body>
+</html>
